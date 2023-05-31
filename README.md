@@ -7,4 +7,4 @@ My name is Bohdan, I am getting a bachelor's degree at Khmelnytskyi National Uni
 
 ## Content:
 - [About](#about)
-[`video_games_sales.ipynb`](https://github.com/nktnlx/data_analysis_portfolio/blob/main/video_games_sales.ipynb)
+[`translator(main file).py`](https://github.com/krpvntsk/portfolio/blob/main/python_translator/translator(main%20file).py)
