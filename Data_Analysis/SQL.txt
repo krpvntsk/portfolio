@@ -1,0 +1,111 @@
+SELECT `Country or region`, `Overall rank`, `GDP per capita`, Score
+FROM happy
+ORDER BY 'Overall rank'
+LIMIT
+10;
+
+
+SELECT `Country or region`, `Overall rank`, `GDP per capita`, Score
+FROM happy
+ORDER BY 2 DESC
+LIMIT 10
+
+
+SELECT a.Happiness, COUNT(*) 
+FROM 
+(SELECT `Country or region`, `Overall rank`, Score, CASE WHEN Score > 
+(SELECT AVG(Score)
+FROM happy) 
+THEN 'Happy' ELSE 'Not Happy' END AS Happiness
+FROM happy) a
+GROUP BY 1
+
+
+SELECT `Overall rank`, 
+`Country or region`, 
+Score, 
+ROUND(Score/(SELECT SUM(Score) FROM happy), 5) * 100 AS percentage,
+NTILE(4) OVER (ORDER BY Score) AS Happiness_Rank_Quartile
+FROM happy
+SELECT a.ranking, a.country, a.soc_support, b.life_expect, c.freed_choices, d.generosity
+FROM
+  (SELECT `Overall rank` as ranking, `Country or region` as country, 
+          rank() OVER (order by `Social support` DESC) as soc_support
+   FROM happy) a
+JOIN
+  (SELECT `Country or region`, 
+          rank() OVER (order by `Healthy life expectancy` DESC) as life_expect
+   FROM happy) b
+ON a.country = b.`Country or region`
+JOIN
+  (SELECT `Country or region`,
+          rank() OVER (order by `Freedom to make life choices` DESC) as freed_choices
+   FROM happy) c
+ON a.country = c.`Country or region`
+JOIN
+  (SELECT `Country or region`,
+          rank() OVER (order by `Generosity` DESC) as generosity
+   FROM happy) d
+ON a.country = d.`Country or region`
+ORDER BY 1
+
+
+SELECT `Overall rank`,
+`Country or region`,
+RANK() OVER (order by `GDP per capita` DESC) AS GDP,
+RANK() OVER (order by `Social support` DESC) AS soc_support,
+RANK() OVER (order by `Healthy life expectancy` DESC) AS healthy_life,
+RANK() OVER (order by `Freedom to make life choices` DESC) AS freedom_choices,
+RANK() OVER (order by `Generosity` DESC) AS generosity,
+RANK() OVER (order by `Perceptions of corruption` DESC) AS corruption
+FROM happy
+ORDER BY 1
+
+
+SELECT a.country, (a.GDP + a.soc_support + a.healthy_life + a.freedom_choices
++ a.generosity + a.corruption) AS sum_rank
+FROM
+(SELECT `Overall rank`,
+`Country or region` as country,
+RANK() OVER (order by `GDP per capita` DESC) AS GDP,
+RANK() OVER (order by `Social support` DESC) AS soc_support,
+RANK() OVER (order by `Healthy life expectancy` DESC) AS healthy_life,
+RANK() OVER (order by `Freedom to make life choices` DESC) AS freedom_choices,
+RANK() OVER (order by `Generosity` DESC) AS generosity,
+RANK() OVER (order by `Perceptions of corruption` DESC) AS corruption
+FROM happy
+ORDER BY 1)  a
+ORDER BY 2
+
+
+SELECT a.country, (a.GDP + a.soc_support + a.healthy_life + a.freedom_choices
++ a.generosity + a.corruption) AS sum_rank
+FROM
+(SELECT `Overall rank`,
+`Country or region` as country,
+RANK() OVER (order by `GDP per capita` DESC) AS GDP,
+RANK() OVER (order by `Social support` DESC) AS soc_support,
+RANK() OVER (order by `Healthy life expectancy` DESC) AS healthy_life,
+RANK() OVER (order by `Freedom to make life choices` DESC) AS freedom_choices,
+RANK() OVER (order by `Generosity` DESC) AS generosity,
+RANK() OVER (order by `Perceptions of corruption` DESC) AS corruption
+FROM happy
+ORDER BY 1)  a
+WHERE a.country IN ('United States', 'China', 'India', 'Russia', 'United Kingdom')
+ORDER BY 2
+
+SELECT `Country or region`
+from happy
+WHERE Score >= 7 AND `GDP per capita` < 1.1
+
+
+SELECT score_group, COUNT(*) FROM (SELECT `Country or region`,
+CASE WHEN Score BETWEEN 2 AND 3 THEN 'first_group'
+WHEN Score BETWEEN 3 AND 4 THEN 'second_group'
+WHEN Score BETWEEN 4 AND 5 THEN 'third_group'
+WHEN Score BETWEEN 5 AND 6 THEN 'fourth_group'
+WHEN Score BETWEEN 6 AND 7 THEN 'fifth_group'
+WHEN Score BETWEEN 7 AND 8 THEN 'sixth_group'
+END AS score_group
+FROM happy) a
+GROUP BY 1
