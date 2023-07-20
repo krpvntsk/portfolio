@@ -8,9 +8,9 @@ I carried out this project for my own purposes, to study English. The task was n
 ## Python Data Analysis
 [`Gym_Exercises.ipynb`](https://github.com/krpvntsk/portfolio/blob/main/Data_Analysis/Gym_Exercises.ipynb)
 The purpose of this analysis was to study the total number of exercises, which equipment is needed to perform the exercise, which distribution of exercises by muscle groups, etc. The data was quite limited, as certain numerical data are almost absent, so the analysis is quite simple. Widely used visualization for a more visual display of relationships.
-[`Inflation_Analysis`](https://github.com/krpvntsk/portfolio/blob/main/Data_Analysis/Inflation_Analysis.ipynb)
+[`Inflation_Analysis.ipynb`](https://github.com/krpvntsk/portfolio/blob/main/Data_Analysis/Inflation_Analysis.ipynb)
 This topic was the most interesting, although the data was also not very diverse, just the same indicator for a large number of years. But during the analysis, certain significant problems appeared that needed to be solved. The data was somewhat cleaned and the analysis was extended by using population data to derive special indicators
-[`Wage Analysis`](https://github.com/krpvntsk/portfolio/blob/main/Data_Analysis/Wage%20Analysis.ipynb)
+[`Wage Analysis.ipynb`](https://github.com/krpvntsk/portfolio/blob/main/Data_Analysis/Wage%20Analysis.ipynb)
 The purpose of this analysis was to study the impact of certain factors on the amount of wages. Graphs were used for comparison and certain non-obvious results were derived and the most successful groups were formed to receive the highest salaries.
 ## SQL Data Analysis
-I like to analyze global indicators that concern entire countries. That is why data on happiness indicators in different countries for 2019 were chosen for this analysis, this topic is and will be relevant. In this analysis, various queries to the main table were used, which form the basis of the example for further visualization of the results
+[Happiness_Analysis.txt](https://github.com/krpvntsk/portfolio/blob/main/Data_Analysis/Happiness_Analysis.txt)I like to analyze global indicators that concern entire countries. That is why data on happiness indicators in different countries for 2019 were chosen for this analysis, this topic is and will be relevant. In this analysis, various queries to the main table were used, which form the basis of the example for further visualization of the results
