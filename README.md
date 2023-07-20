@@ -11,6 +11,7 @@ The purpose of this analysis was to study the total number of exercises, which e
 
 [`Inflation_Analysis.ipynb`](https://github.com/krpvntsk/portfolio/blob/main/Data_Analysis/Inflation_Analysis.ipynb)
 This topic was the most interesting, although the data was also not very diverse, just the same indicator for a large number of years. But during the analysis, certain significant problems appeared that needed to be solved. The data was somewhat cleaned and the analysis was extended by using population data to derive special indicators.
+
 [`Wage Analysis.ipynb`](https://github.com/krpvntsk/portfolio/blob/main/Data_Analysis/Wage%20Analysis.ipynb)
 The purpose of this analysis was to study the impact of certain factors on the amount of wages. Graphs were used for comparison and certain non-obvious results were derived and the most successful groups were formed to receive the highest salaries.
 ## SQL Data Analysis
